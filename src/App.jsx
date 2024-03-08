@@ -1,32 +1,24 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Navbar from "./Components/Navbar";
-import FirstConponent from "./Components/FirstComponent";
 
 const  App = () => {
 
+  const [data,setData] = useState([]);
 
-const [x,setx] = useState(0);
+  const inputRef = useRef(null);
 
-const btnClick = () => {
-console.log('Hello');
-console.log(x);
-
-setx(x+1);
-}
   return ( 
-    <div>
-<h1>Hello</h1>
-<button onClick={
-  
-  () => {btnClick()}
-  }>Click me</button>
- 
-
-<FirstComponent data={x}/>
-
-  </div>
+   <div>
+<input ref={inputRef} type="text"/>
+<button onClick={()=>{setData([...data,inputRef.current.value])}}>Submit</button>
+{data.map((item,index)=>{
+  return(
+  <h2 key={index}>{item}</h2>
+  ) 
+  })}
+   </div>
   );
   
-}
+  }
  
 export default App;

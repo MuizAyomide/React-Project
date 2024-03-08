@@ -1,11 +1,11 @@
 import React from 'react'
-  
-const FirstComponent = (props) => {
+
+const FirstComponent = () => {
   return (
     <div>
-      {props.data}
+      
     </div>
   )
 }
 
-export default FirstComponent;
+export default FirstComponent
